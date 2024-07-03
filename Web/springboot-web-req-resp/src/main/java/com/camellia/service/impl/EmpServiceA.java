@@ -2,8 +2,10 @@ package com.camellia.service.impl;
 
 import com.camellia.pojo.Emp;
 import com.camellia.service.EmpService;
-import dao.EmpDao;
-import dao.impl.EmpDaoA;
+import com.camellia.dao.EmpDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -11,9 +13,11 @@ import java.util.List;
  * @Datetime: 2024/6/30下午5:50
  * @author: Camellia.xioahua
  */
+@Service
 public class EmpServiceA implements EmpService {
-
-    private EmpDao empDao = new EmpDaoA();
+    @Autowired
+    @Qualifier("empDao")
+    private EmpDao empDao;
 
     @Override
     public List<Emp> listEmp() {

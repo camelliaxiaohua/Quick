@@ -4,6 +4,7 @@ import com.camellia.pojo.Emp;
 import com.camellia.pojo.Result;
 import com.camellia.service.EmpService;
 import com.camellia.service.impl.EmpServiceA;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +18,8 @@ import java.util.List;
 @RestController
 public class EmpControllerThree {
 
-    private EmpService empService = new EmpServiceA();
+    @Autowired
+    private EmpService empService;
 
     @RequestMapping("/listEmp")
     public Result listEmp() {

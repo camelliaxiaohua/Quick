@@ -1,9 +1,9 @@
-package dao.impl;
+package com.camellia.dao.impl;
 
 import com.camellia.pojo.Emp;
-import com.camellia.pojo.Result;
-import dao.EmpDao;
-import utils.XmlParserUtils;
+import com.camellia.dao.EmpDao;
+import org.springframework.stereotype.Repository;
+import com.camellia.utils.XmlParserUtils;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import java.util.List;
  * @Datetime: 2024/6/30下午5:46
  * @author: Camellia.xioahua
  */
+@Repository("empDao")
 public class EmpDaoA implements EmpDao {
     @Override
     public List<Emp> findAll() {
