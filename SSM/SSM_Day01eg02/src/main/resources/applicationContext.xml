@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--bean标签表示配置bean
+       id属性表示给bean起名字
+       class属性表示给bean定义类型-->
+    <bean id="bookDao" class="dao.impl.BookDaoImpl" ></bean>
+
+    <bean id="bookService" class="service.impl.BookServiceImpl" scope="prototype">
+       <!-- 7、配置Service与Dao的关系-->
+        <!--property标签表示配置当前bean的属性
+        name属性表示配置哪一个具体的属性
+        ref属性表示参照哪一个bean-->
+        <property name="bookDao" ref="bookDao"/>
+    </bean>
+    <!--还可通过构造方法配置关系-->
+    <bean id="bookDao2" class="dao.impl.BookDaoImpl2"></bean>
+    <bean id="bookService2" class="service.impl.BookServiceImpl2">
+        <constructor-arg index="0" ref="bookDao2"></constructor-arg>
+    </bean>
+</beans>
